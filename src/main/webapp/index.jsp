@@ -1,9 +1,10 @@
+<%@page import="java.time.LocalDate"%>
+<%@page import="java.time.ZoneId"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <meta charset="ISO-8859-1">
@@ -26,7 +27,7 @@
 								
 								
 								
-								Departure<input type="date" name="date" min="2000-01-02"
+								Departure Date<input type="date" name="date" min=<%= LocalDate.now().plusDays(1)	%>
 									placeholder="your journey date"> TotalSeat<input
 									type="text" name="totalseat" placeholder="Number of Seat">
 								<button type="submit" class="btn">Submit</button>

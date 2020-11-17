@@ -12,6 +12,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.mysql.cj.Session;
 
 
 @WebServlet("/adduser")
@@ -47,6 +50,12 @@ public class AddUserDetails extends HttpServlet {
 		System.out.println("You are inside add user servlet post method");
 		
 		String username = request.getParameter("username");
+		
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("name", username);
+		
+		
 		String email = request.getParameter("email");
 		String mobileno = request.getParameter("mobileno");
 		String password = request.getParameter("password");
