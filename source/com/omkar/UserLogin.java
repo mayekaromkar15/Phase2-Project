@@ -26,11 +26,11 @@ public class UserLogin extends HttpServlet {
 	
 	public void init() {
 		try {
+			
 			System.out.println("Inside the userlogin init method");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway", "root", "12345");
 			
-//			username, email, mobileno, password
 			String query = "Select * from  userdetails where username = ? and password = ?";
 			psmt = connection.prepareStatement(query);
 
@@ -56,13 +56,12 @@ public class UserLogin extends HttpServlet {
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				System.out.println("Inside the userlogin dopost method and about to create the httpsession");
 				request.getSession().setAttribute("username", username);
 				out = response.getWriter();
 				out.println("Welcome "+ username);
 				
 //				
-				RequestDispatcher rd = request.getRequestDispatcher("checkout.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("MakePayment.jsp");
 				
 				rd.include(request, response);
 //				response.setContentType("html/text");
@@ -89,7 +88,8 @@ public class UserLogin extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println("<h3>Inside User login do Post method----</h3>");
+//		response.setContentType("html/text");
+		response.getWriter().println("<h3>Payment Details</h3>");
 		
 		processrequestresponse(request, response);
 		
