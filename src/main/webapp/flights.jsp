@@ -92,6 +92,9 @@ try{
 	String from = request.getParameter("from");
 	String to = request.getParameter("to");
 	String nonstop = request.getParameter("nonstop");
+	out.print(from);
+	out.print(to);
+	out.print(nonstop);
 	
 	if (from!=null && to!=null && nonstop!=null){
 		psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ? and TotalStops = 1");

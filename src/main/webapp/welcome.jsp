@@ -71,7 +71,7 @@
                             <input type="text" value = "ADULTS  &darr;" disabled>
                             <select class="form-control" name="adultseats" required>
                                 <option></option>
-								<%for (int i = 0; i <=5; i++){%>
+								<%for (int i = 1; i <=5; i++){%>
 								<option><% out.println(i);%></option>
 								<%
 								}
