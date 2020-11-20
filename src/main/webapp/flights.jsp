@@ -54,9 +54,7 @@ padding: 10px;
 <body>
 <div class = container>
 
-<tr class="center">
-<td colspan="0.5"><h5>Flight Details</h5></td>
-</tr>
+<h5 align="center">Flight Details</h5>
 
 
 <table class="left" >

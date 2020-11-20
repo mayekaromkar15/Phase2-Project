@@ -28,8 +28,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		System.out.println("Inside do get");
 		String parameter = request.getParameter("page");
+		
+		System.out.println(parameter);
 		String paramater1 = request.getParameter("flightno");
 		HttpSession sessflight = request.getSession();
+		System.out.println(paramater1);
 		sessflight.setAttribute("flightno", paramater1);
 		
 		
