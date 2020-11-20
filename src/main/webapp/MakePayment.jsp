@@ -20,18 +20,18 @@
               
                 <div class="regForm">
                     <h1><b>&emsp;&emsp;MAKE PAYMENT</b></h1>
-                    <form action="" method="POST">
+                    <form action="bookingdetails.jsp" method="POST">
                         <div class="form-group">
                             <label>CARD NUMBER</label>
-                            <input type="text" class="form-control" name="cardnumber" placeholder="Enter your Card number" required>
+                            <input type="text" class="form-control" name="cardnumber" placeholder="Enter your Card number">
                         </div>       
                         <div class="form-group">
                             <label>NAME ON CARD</label>
-                            <input type="email" class="form-control" name="nameoncard" placeholder="Enter Name Here" required>
+                            <input type="text" class="form-control" name="nameoncard" placeholder="Enter Name Here">
                         </div>
                         <div class="form-group">
                             <label>EXPIRY DATE</label>
-                            <select class="form-control" name="designation" required>
+                            <select class="form-control" name="designation" >
                                 <option>--MONTH--</option>
 								<%for (int i = 0; i <=12; i++){%>
 								<option><% out.println(i);%></option>
@@ -39,7 +39,7 @@
 								}
 								%>
                             </select>
-                            <select class="form-control" name="designation" required>
+                            <select class="form-control" name="designation">
                                 <option>--YEAR--</option>
 								<%for (int j = 2022; j <=2028; j++){%>
 								<option><% out.println(j);%></option>
@@ -49,12 +49,12 @@
                             </select>
                             <div class="form-group">
                             <label>CVV</label>
-                            <input type="password" class="form-control" name="cvv" required>
+                            <input type="password" class="form-control" name="cvv">
                         </div>
                         </div> 
                         <div class="form-group">
                             <label>MOBILE NUMBER</label>
-                            <input type="text" class="form-control" name="mobileno" placeholder="Enter your Mobile number" required>
+                            <input type="text" class="form-control" name="mobileno" placeholder="Enter your Mobile number">
                         </div>
                         <button type="submit" class="btn btn-primary" name="register">CONFIRM</button>
                     </form>

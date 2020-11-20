@@ -11,11 +11,6 @@
 
 </head>
 <body>
-<%
-String bt = request.getParameter("bt");
-out.print(bt);
-
-%>
 
 <h3>
 		<b></b>

@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/main")
 public class Controller extends HttpServlet {
@@ -27,6 +28,10 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		System.out.println("Inside do get");
 		String parameter = request.getParameter("page");
+		String paramater1 = request.getParameter("flightno");
+		HttpSession sessflight = request.getSession();
+		sessflight.setAttribute("flightno", paramater1);
+		
 		
 		if (parameter.equals("login")) {
 			System.out.println("checking register parameter");

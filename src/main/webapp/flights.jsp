@@ -4,6 +4,10 @@
 <%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%!
+PreparedStatement psmt;
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,15 +90,21 @@ padding: 10px;
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/flyaway", "root", "12345");
-	PreparedStatement psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ?");
 	
 	String from = request.getParameter("from");
 	String to = request.getParameter("to");
+	String nonstop = request.getParameter("nonstop");
+	
+	if (from!=null && to!=null && nonstop!=null){
+		psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ? and TotalStops = 1");
+	}else if (from!=null && to!=null){
+		psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ?");
 		
+	}
+
 
 	psmt.setString(1, from);
 	psmt.setString(2, to);
-	
 	ResultSet resultset = psmt.executeQuery();
 	while(resultset.next()){
 %>
@@ -114,8 +124,7 @@ try{
 <td ><%= resultset.getInt("Fare")%></td>
 
 <td><a class="btn" href="<%= request.getContextPath() %>/main?page=login&flightno=<%= resultset.getString("FlightNo")%>">Book Now</a></td>
-<!--  <td><a class = "btn" href="<%= request.getContextPath() %>/main?page=login" >Book Now</a></td>
--->
+
 </tr>
 
 
@@ -124,7 +133,7 @@ try{
 	
 }
 catch(Exception e){
-	out.println("In wwrong place "+e);
+	out.println("In wrong place "+e);
 	
 }
 
