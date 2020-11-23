@@ -47,7 +47,7 @@ padding: 10px;
 }
 
 
-
+//
 
 </style>
 </head>
@@ -55,9 +55,8 @@ padding: 10px;
 <div class = container>
 
 <h5 align="center">Flight Details</h5>
-<h2 align = "center"><a class="btn" href="AdminAddNewFlight.jsp">Add Flight</a></h2>
 
-<table class="left" >
+<table class="striped" >
 <tr style="border:1px double black;">
 <th><b>Flight No</b></th>
 <th><b>FlightName</b></th>

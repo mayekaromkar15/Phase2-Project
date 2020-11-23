@@ -15,23 +15,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/loginUser")
-public class UserLogin extends HttpServlet {
+@WebServlet("/adminlogin")
+public class AdminLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private PreparedStatement psmt;
-	private Connection connection;
 	private PrintWriter out;
-       
+	private Connection connection;
+	
+	
+
 	
 	public void init() {
 		try {
 			
-			System.out.println("Inside the userlogin init method");
+			System.out.println("Inside the adminlogin init method");
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway", "root", "12345");
 			
-			String query = "Select * from  userdetails where username = ? and password = ?";
+			String query = "Select * from  admindetails where username = ? and password = ?";
 			psmt = connection.prepareStatement(query);
+			System.out.println("successfully connected to the database.");
 
 		} catch (ClassNotFoundException | SQLException e) {
 			System.out.println("Inside exception block of init"+e);
@@ -42,8 +45,8 @@ public class UserLogin extends HttpServlet {
 	void processrequestresponse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		String username  = request.getParameter("username");
-		String password = request.getParameter("password");
+		String username  = request.getParameter("adminusername");
+		String password = request.getParameter("adminpassword");
 		
 		
 		
@@ -55,51 +58,45 @@ public class UserLogin extends HttpServlet {
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()) {
-				request.getSession().setAttribute("username", username);
 				out = response.getWriter();
 				
 				out.println("<h1 align=center>");
 				out.println("<br>");
 				out.println("<br>");
-				out.println("Welcome "+ rs.getString("fname")+" " +rs.getString("lname") );
+				out.println("Welcome to Asminlogin panel ");
 				out.println("</br>");
 				out.println("</h1>");
 				
 //				
-				RequestDispatcher rd = request.getRequestDispatcher("MakePayment.jsp");
+				RequestDispatcher rd = request.getRequestDispatcher("AdminDivert.jsp");
 				
 				rd.include(request, response);
 //				response.setContentType("html/text");
-				System.out.println("Creted http session");
 			}
 			else {
-				out.println("<h4 align = center>Please Enter Valid Username and Password</h4>");
-				request.getRequestDispatcher("login.jsp").include(request, response);
+				out.println("<h4 align = center>You are not an Admin</h4>");
+				request.getRequestDispatcher("AdminLogin.jsp").include(request, response);
 			}
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Inside the userlogin.java exception block "+e);
+			System.out.println("Inside the Adminlogin.java exception block "+e);
 		}
 	}
 	
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	response.getWriter().println("<h3>Inside User login do get method</h3>");
 	
-	processrequestresponse(request, response);
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	
 	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.setContentType("html/text");
-//		response.getWriter().println("<h6></h6>");
-		
 		processrequestresponse(request, response);
-		
 	}
-	
+
 	
 	public void destroy() {
 		try {
@@ -109,6 +106,4 @@ public class UserLogin extends HttpServlet {
 			System.out.println("failed to close the connection");
 		}
 	}
-
-	
 }

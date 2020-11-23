@@ -26,7 +26,7 @@
             <div class="col-md-9 offset-md-1">
    <!-- FlightNo, Source, Destination, Fare, Departure, Arrival, Duration, AirportName, TotalStops, FlightName, Duration_in_hours, Duration_in_mins -->
                 <div class="regForm">
-                    <h1 style="text-align: center;"><b>BOOK FLIGHT</b></h1>
+                    <h1 style="text-align: center;"><b>ADD NEW FLIGHT</b></h1>
                     <form action="addnewflight" method="POST">
                       <div class="form-group">
                             <label>FLIGHT NO</label>
