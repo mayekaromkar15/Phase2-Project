@@ -42,7 +42,7 @@ public class UserLogin extends HttpServlet {
 	
 	void processrequestresponse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+		response.setContentType("text/html");
 		String username  = request.getParameter("username");
 		String password = request.getParameter("password");
 		
@@ -58,7 +58,13 @@ public class UserLogin extends HttpServlet {
 			if(rs.next()) {
 				request.getSession().setAttribute("username", username);
 				out = response.getWriter();
-				out.println("Welcome "+ username);
+				
+				out.println("<h1 align=center>");
+				out.println("<br>");
+				out.println("<br>");
+				out.println("Welcome "+ rs.getString("fname")+" " +rs.getString("lname") );
+				out.println("</br>");
+				out.println("</h1>");
 				
 //				
 				RequestDispatcher rd = request.getRequestDispatcher("MakePayment.jsp");
@@ -68,7 +74,7 @@ public class UserLogin extends HttpServlet {
 				System.out.println("Creted http session");
 			}
 			else {
-				response.getWriter().println("<h3>&emsp;&emsp;&emsp;Please enter Valid username and password</h3>");
+				out.println("<h4 align = center>Please Enter Valid Username and Password</h4>");
 				request.getRequestDispatcher("login.jsp").include(request, response);
 			}
 			
@@ -89,10 +95,20 @@ public class UserLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		response.setContentType("html/text");
-		response.getWriter().println("<h3>Payment Details</h3>");
+//		response.getWriter().println("<h6></h6>");
 		
 		processrequestresponse(request, response);
 		
+	}
+	
+	
+	public void destroy() {
+		try {
+			connection.close();
+			psmt.close();
+		} catch (SQLException e) {
+			System.out.println("failed to close the connection");
+		}
 	}
 
 	

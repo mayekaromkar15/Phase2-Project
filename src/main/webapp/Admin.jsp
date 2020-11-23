@@ -55,18 +55,9 @@ padding: 10px;
 <div class = container>
 
 <h5 align="center">Flight Details</h5>
-
+<h2 align = "center"><a class="btn" href="AdminAddNewFlight.jsp">Add Flight</a></h2>
 
 <table class="left" >
-
-<tr><td><b>From</b>  : <%= request.getParameter("from") %></td> 
-<td> <b>To</b> : <%= request.getParameter("to") %></td>
-<td> <b>Travel Date</b> : <%= request.getParameter("date") %></td>
-</tr>
-
-
-
-
 <tr style="border:1px double black;">
 <th><b>Flight No</b></th>
 <th><b>FlightName</b></th>
@@ -78,52 +69,19 @@ padding: 10px;
 <th><b>AirportName</b></th>
 <th><b>Fare</b></th>
 <th><b></b></th>
-
-
-
-
 </tr>
 
 <%
 try{
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/flyaway", "root", "12345");
-	
-	HttpSession sessionwlcm = request.getSession();
-	String from = request.getParameter("from");
-	String to = request.getParameter("to");
-	String nonstop = request.getParameter("nonstop");
-	int adults = Integer.parseInt(request.getParameter("adultseats"));
-	int children = Integer.parseInt(request.getParameter("childrenseats"));
-	
-	out.println(from);
-	out.println(to);
-	out.println(nonstop);
-	out.println(adults);
-	out.println(children);
-	
-	sessionwlcm.setAttribute("from", from);
-	sessionwlcm.setAttribute("to", to);
-	sessionwlcm.setAttribute("nonstop", nonstop);
-	sessionwlcm.setAttribute("adults", adults);
-	sessionwlcm.setAttribute("children", children);
-	
-	if (from!=null && to!=null && nonstop!=null){
-		psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ? and TotalStops = 1");
-	}else if (from!=null && to!=null){
-		psmt = connection.prepareStatement( "Select * from flight_details where Source = ? and Destination = ?");
-	}
-
-
-	psmt.setString(1, from);
-	psmt.setString(2, to);
+	psmt = connection.prepareStatement( "Select * from flight_details");
 	ResultSet resultset = psmt.executeQuery();
 	while(resultset.next()){
 %>
 <tr class="blank_row">
 <td colspan="0.5"></td>
 </tr>
-
 <tr style="border:1px dotted black">
 <td ><%= resultset.getString("FlightNo")%></td>
 <td ><%= resultset.getString("FlightName")%></td>
@@ -134,8 +92,8 @@ try{
 <td ><%= resultset.getString("Duration")%></td>
 <td ><%= resultset.getString("AirportName")%></td>
 <td ><%= resultset.getInt("Fare")%></td>
-
-<td><a class="btn" href="<%= request.getContextPath() %>/main?page=login&flightno=<%= resultset.getString("FlightNo")%>">Book Now</a></td>
+<td><a class="btn" href="<%= request.getContextPath() %>/admindelete?flightno=<%= resultset.getString("FlightNo")%>">Delete</a></td>
+<td><a class="btn" href="<%= request.getContextPath() %>/adminedit?flightno=<%= resultset.getString("FlightNo")%>">Edit</a></td>
 
 </tr>
 

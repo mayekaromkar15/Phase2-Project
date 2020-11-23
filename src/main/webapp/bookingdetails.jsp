@@ -49,7 +49,7 @@ padding: 10px;
 try{
 	
 	String req = (String)request.getSession().getAttribute("flightno") ;
-	String flights  = request.getParameter("flightno");
+	//String flights  = request.getParameter("flightno");
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/flyaway", "root", "12345");
 	
@@ -65,7 +65,7 @@ try{
 	while(resultset.next()){
 	%>
 
-		<h2 align="center"><br>Your booking is Confirmed</br></h2>
+		<h2 align="center"><b>Your booking is Confirmed</b></h2>
 		 <table style="border:1px double black" align = "center">
 		 	<tr>
 		 		    <th><b>-- Flight No</b></th>

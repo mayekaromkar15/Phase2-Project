@@ -33,8 +33,8 @@ public class AddUserDetails extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway", "root", "12345");
 			
-//			username, email, mobileno, password
-			String query = "Insert into userdetails (username, email, mobileno, password )values (?,?,?,?)";
+//			username, email, mobileno, password, fname, lname
+			String query = "Insert into userdetails (username, email, mobileno, password,fname, lname )values (?,?,?,?,?,?)";
 			psmt = connection.prepareStatement(query);
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -62,6 +62,8 @@ public class AddUserDetails extends HttpServlet {
 		String email = request.getParameter("email");
 		String mobileno = request.getParameter("mobileno");
 		String password = request.getParameter("password");
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
 		PrintWriter out = response.getWriter();
 		
 		
@@ -70,12 +72,13 @@ public class AddUserDetails extends HttpServlet {
 			psmt.setString(2, email);
 			psmt.setString(3, mobileno);
 			psmt.setString(4, password);
-			
+			psmt.setString(5, fname);
+			psmt.setString(6, lname);
 			psmt.executeUpdate();
 			
 			
 			out.println("You can login with the registered details here :");
-			request.getRequestDispatcher("login.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").include(request, response);
 		} catch (SQLException e) {
 			out.println("This Username is already used ");
 			

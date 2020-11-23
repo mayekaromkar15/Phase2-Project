@@ -23,15 +23,22 @@
 						<div class="form">
 							<form action="adduser" method="post">
 								USERNAME
-								<input type="text" name="username" placeholder="username" required = "required">
+								<input type="text" name="username" placeholder="username" 
+								pattern = "[A-Za-z0-9]+" title= "Must not contain spaces" required>
 								PASSWORD
-								<input type="password" name="password" placeholder="password" required = "required">
-								CONFIRM PASSWORD
-								<input type="password" name="confirmpassword" placeholder="Confirm your password" required = "required"> 
+								<input type="password" name="password" placeholder="password" 
+								title = "Must be Alpha-numeric"	 pattern = "[\w]+"  required>
+								FIRST NAME
+								<input type="text" name="fname" placeholder="username" 
+								pattern = "[A-Za-z\s]+" required>
+								LAST NAME
+								<input type="text" name="lname" placeholder="username" 
+								pattern = "[A-Za-z\s]+"required>
 								EMAIL
 								<input	type="email" name="email" placeholder="Please enter a valid email address" required = "required">
 								MOBILENO
-								<input	type="mobileno" name= "mobileno" placeholder="Please enter a valid mobile" required = "required">
+								<input	type="text" name= "mobileno" placeholder="Please enter a valid mobile" 
+								pattern = "[7-9]{1}[0-9]{9}" title = "Must start with 7,8 or 9" required = "required">
 								<button type="submit" class="btn">Submit</button>
 							</form>
 						</div>

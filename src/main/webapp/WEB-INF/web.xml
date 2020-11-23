@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_ID">
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4" id="WebApp_ID">
 	<display-name>project-phase2</display-name>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminDelete</display-name>
+		<servlet-name>AdminDelete</servlet-name>
+		<servlet-class>com.omkar.AdminDelete</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminEdit</display-name>
+		<servlet-name>AdminEdit</servlet-name>
+		<servlet-class>com.omkar.AdminEdit</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdminAddFlight</display-name>
+		<servlet-name>AdminAddFlight</servlet-name>
+		<servlet-class>com.omkar.AdminAddFlight</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AdminDelete</servlet-name>
+		<url-pattern>/AdminDelete</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminEdit</servlet-name>
+		<url-pattern>/AdminEdit</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminAddFlight</servlet-name>
+		<url-pattern>/AdminAddFlight</url-pattern>
+	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>

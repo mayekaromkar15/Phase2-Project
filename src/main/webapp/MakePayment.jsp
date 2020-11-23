@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>Registration Form</title>
+
     
   </head>
   <body>
@@ -19,21 +20,27 @@
             <div class="col-md-6 offset-md-3">
               
                 <div class="regForm">
-                    <h1><b>&emsp;&emsp;MAKE PAYMENT</b></h1>
+                    <h1 align="center"><b>MAKE PAYMENT</b></h1>
                     <form action="bookingdetails.jsp" method="POST">
                         <div class="form-group">
                             <label>CARD NUMBER</label>
-                            <input type="text" class="form-control" name="cardnumber" placeholder="Enter your Card number">
+                            <input type="text" class="form-control" name="cardnumber" 
+                            title="Must not contain Spaces or Alphabets"
+                            placeholder="Enter your 16 digit Card number" pattern="[1-9]{1}[0-9]{15}" />
+           
                         </div>       
                         <div class="form-group">
                             <label>NAME ON CARD</label>
-                            <input type="text" class="form-control" name="nameoncard" placeholder="Enter Name Here">
+                            <input type="text" class="form-control" name="nameoncard" 
+                            placeholder="Enter Name Here" pattern = "[A-Za-z\s]+"
+                            title="Must not contain Digits">
+                            
                         </div>
                         <div class="form-group">
                             <label>EXPIRY DATE</label>
                             <select class="form-control" name="designation" >
                                 <option>--MONTH--</option>
-								<%for (int i = 0; i <=12; i++){%>
+								<%for (int i = 1; i <=12; i++){%>
 								<option><% out.println(i);%></option>
 								<%
 								}
@@ -49,13 +56,10 @@
                             </select>
                             <div class="form-group">
                             <label>CVV</label>
-                            <input type="password" class="form-control" name="cvv">
+                            <input type="password" class="form-control" name="cvv" placeholder = "Enter 3 digit CVV"
+                            pattern = "[0-9]{3}" title="Can contain only 3 digits">
                         </div>
                         </div> 
-                        <div class="form-group">
-                            <label>MOBILE NUMBER</label>
-                            <input type="text" class="form-control" name="mobileno" placeholder="Enter your Mobile number">
-                        </div>
                         <button type="submit" class="btn btn-primary" name="register">CONFIRM</button>
                     </form>
                 </div>

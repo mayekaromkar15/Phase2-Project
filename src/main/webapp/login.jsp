@@ -26,7 +26,8 @@
 								USERNAME
 								<input type="text" name="username" placeholder="username" required = "required"><br>
 								PASSWORD
-								<input type="password" name="password" placeholder="password" required = "required">
+								<input type="password" name="password" placeholder="password" 
+								title = "Must be Alpha-numeric"	 pattern = "[A-Za-z0-9]+" required>
 								<button type="submit" class="btn">Submit</button>
 								<a href="<%= request.getContextPath()%>/main?page=register"> &emsp;Not a user! Register Now.</a>
 							</form>
