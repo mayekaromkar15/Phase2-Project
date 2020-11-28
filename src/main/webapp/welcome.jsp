@@ -16,7 +16,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Welcome</title>
+    <title>Welcome</title> 
+  <style>
+.container
+{
+position: absolute;
+top: 40%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+</style>  
   </head>
   <body>
     <div class="container">
@@ -24,6 +33,9 @@
             <div class="col-md-9 offset-md-1">
               
                 <div class="regForm">
+                	<h1></h1>
+                	<h6 align = "right"><a class="btn" href="AdminLogin.jsp">Admin Login</a></h6>
+                	
                     <h1 style="text-align: center;"><b>BOOK FLIGHT</b></h1>
                     <form action="flights.jsp" method="POST">
                         <div class="form-group" align = "center">

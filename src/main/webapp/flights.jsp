@@ -54,7 +54,7 @@ padding: 10px;
 <body>
 <div class = container>
 
-<h5 align="center">Flight Details</h5>
+<h5 align="center"><b>Flight Details</b></h5>
 
 
 <table class="left" >
@@ -62,6 +62,8 @@ padding: 10px;
 <tr><td><b>From</b>  : <%= request.getParameter("from") %></td> 
 <td> <b>To</b> : <%= request.getParameter("to") %></td>
 <td> <b>Travel Date</b> : <%= request.getParameter("date") %></td>
+<td> <b>Total Adults</b> : <%= request.getParameter("adultseats") %></td>
+<td> <b>Total Childrens</b> : <%= request.getParameter("childrenseats") %></td>
 </tr>
 
 
@@ -96,11 +98,6 @@ try{
 	int adults = Integer.parseInt(request.getParameter("adultseats"));
 	int children = Integer.parseInt(request.getParameter("childrenseats"));
 	
-	out.println(from);
-	out.println(to);
-	out.println(nonstop);
-	out.println(adults);
-	out.println(children);
 	
 	sessionwlcm.setAttribute("from", from);
 	sessionwlcm.setAttribute("to", to);
@@ -118,6 +115,8 @@ try{
 	psmt.setString(1, from);
 	psmt.setString(2, to);
 	ResultSet resultset = psmt.executeQuery();
+	
+	
 	while(resultset.next()){
 %>
 <tr class="blank_row">
@@ -133,7 +132,7 @@ try{
 <td ><%= resultset.getString("Arrival")%></td>
 <td ><%= resultset.getString("Duration")%></td>
 <td ><%= resultset.getString("AirportName")%></td>
-<td ><%= resultset.getInt("Fare")%></td>
+<td ><%= (adults * resultset.getInt("Fare")) + Math.round((children * (0.8 * resultset.getInt("Fare"))))%></td>
 
 <td><a class="btn" href="<%= request.getContextPath() %>/main?page=login&flightno=<%= resultset.getString("FlightNo")%>">Book Now</a></td>
 

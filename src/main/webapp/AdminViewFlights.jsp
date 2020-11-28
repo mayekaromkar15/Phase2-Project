@@ -45,10 +45,6 @@ padding: 10px;
    margin-right:2%;
    width: 96%;
 }
-
-
-//
-
 </style>
 </head>
 <body>
@@ -79,7 +75,7 @@ try{
 	while(resultset.next()){
 %>
 <tr class="blank_row">
-<td colspan="0.5"></td>
+<td colspan="0.2"></td>
 </tr>
 <tr style="border:1px dotted black">
 <td ><%= resultset.getString("FlightNo")%></td>
