@@ -54,8 +54,8 @@ public class AdminAddFlight extends HttpServlet {
 		String airport = request.getParameter("airport");
 		String departure = request.getParameter("departure");
 		String arrival = request.getParameter("arrival");
-		int business = (int) (economy * 1.5);
-		int firstclass = (int) (economy * 2.5);
+		int business = (int) (economy * 3);
+		int firstclass = (int) (economy * 5);
 		
 		out.println(arrival);
 		out.println(departure);

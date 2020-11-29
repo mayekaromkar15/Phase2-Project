@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -55,6 +56,8 @@ public class UserLogin extends HttpServlet {
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()) {
+
+				request.getServletContext().setAttribute("username", username);
 				request.getSession().setAttribute("username", username);
 				out = response.getWriter();
 				

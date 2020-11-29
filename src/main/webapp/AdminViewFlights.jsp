@@ -45,12 +45,21 @@ padding: 10px;
    margin-right:2%;
    width: 96%;
 }
+
+h4
+{
+background-color:#d9d9d9;
+border-radius: 20px;
+box-shadow:5px 5px 5px;
+font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
 </style>
 </head>
 <body>
 <div class = container>
 
-<h5 align="center">Flight Details</h5>
+<h4 align="center">F<span>LIGHT</span>  D<span>ETAILS</span></h4>
 
 <table class="striped" >
 <tr style="border:1px double black;">
@@ -62,8 +71,9 @@ padding: 10px;
 <th><b>Arrival</b></th>
 <th><b>Duration</b></th>
 <th><b>AirportName</b></th>
-<th><b>Fare</b></th>
-<th><b></b></th>
+<th><b>Economy</b></th>
+<th><b>Business</b></th>
+<th><b>First Class</b></th>
 </tr>
 
 <%
@@ -86,9 +96,10 @@ try{
 <td ><%= resultset.getString("Arrival")%></td>
 <td ><%= resultset.getString("Duration")%></td>
 <td ><%= resultset.getString("AirportName")%></td>
-<td ><%= resultset.getInt("Fare")%></td>
+<td ><%= resultset.getInt("Economy")%></td>
+<td ><%= resultset.getInt("Business")%></td>
+<td ><%= resultset.getInt("First_Class")%></td>
 <td><a class="btn" href="<%= request.getContextPath() %>/admindelete?flightno=<%= resultset.getString("FlightNo")%>">Delete</a></td>
-<td><a class="btn" href="<%= request.getContextPath() %>/adminedit?flightno=<%= resultset.getString("FlightNo")%>">Edit</a></td>
 
 </tr>
 

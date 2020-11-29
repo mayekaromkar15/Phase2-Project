@@ -25,11 +25,14 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
-span{
-background-color:    #fbf87d  ;
+h1{
+background-color: #3377ff;
+color:#ffffff;
+border-radius: 25px;
+font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
-span1{
-background-color:     #ffedd2     ;
+span{
+background-color:#ffedd2;
 }
 
 </style>  
@@ -41,8 +44,8 @@ background-color:     #ffedd2     ;
                 <div class="regForm">
                 	<h1></h1>
                 	
-                	<h6 align = "right"><a class="btn" href="AdminLogin.jsp"><span1>Admin Login</span1></a></h6>	               
-                	  <h1 style="text-align: center;"><b><span>BOOK FLIGHT</span></b></h1>
+                	<h6 align = "right"><a class="btn" href="AdminLogin.jsp"><span>Admin Login</span></a></h6>	               
+                	  <h1 style="text-align: center;"><b>BOOK FLIGHT</b></h1>
                     <form action="flights.jsp" method="POST">
                         <div class="form-group" align = "center">
                         <label>FROM&emsp;:&emsp;</label>
@@ -53,7 +56,7 @@ background-color:     #ffedd2     ;
 							Statement stmt = dbcon.createStatement();
 							ResultSet  theresult = stmt.executeQuery(qry);
 							%>
-							<select name = "from" required>
+								<select name = "from" required>
 							<option></option>
 							<% while(theresult.next()){
 							%>	

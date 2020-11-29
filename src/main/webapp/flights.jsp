@@ -20,7 +20,7 @@ PreparedStatement psmt;
 b
 {
 backgroud-color:cyan;
-box-shadow:5px 5px 5px;
+box-shadow:3px 3px 3px;
 width:420px;
 }
 table
@@ -35,6 +35,19 @@ th
 background-color: #1d8fe4;
 border-radius: 0.5;
 padding: 10px;
+}
+h4
+{
+border-radius: 20px;
+box-shadow:5px 5px 5px;
+font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+I
+{
+background-color:  #d9d9d9;
+border-radius: 20px;
+font-size: 20px;
 
 }
 .container {
@@ -46,24 +59,26 @@ padding: 10px;
    width: 96%;
 }
 
+span{
+font-family: "Comic Sans MS", "Comic Sans", cursive;
+font-size: 25px;
+}
 
-
-
-</style>
+</style>	
 </head>
 <body>
 <div class = container>
 
-<h5 align="center"><b>Flight Details</b></h5>
+<h4 align="center">F<span>LIGHT</span>  D<span>ETAILS</span></h4>
 
 
 <table class="left" >	
 
-<tr><td><b>From</b>  : <%= request.getParameter("from") %></td> 
-<td> <b>To</b> : <%= request.getParameter("to") %></td>
-<td> <b>Travel Date</b> : <%= request.getParameter("date") %></td>
-<td> <b>Total Adults</b> : <%= request.getParameter("adultseats") %></td>
-<td> <b>Total Childrens</b> : <%= request.getParameter("childrenseats") %></td>
+<tr><td><I>From</I>  : <%= request.getParameter("from") %></td> 
+<td> <i>To</i> : <%= request.getParameter("to") %></td>
+<td> <i>Travel Date</i> : <%= request.getParameter("date") %></td>
+<td> <i>Total Adults</i> : <%= request.getParameter("adultseats") %></td>
+<td> <i>Total Childrens</i> : <%= request.getParameter("childrenseats") %></td>
 </tr>
 
 

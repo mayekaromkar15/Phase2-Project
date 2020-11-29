@@ -59,12 +59,7 @@ public class AdminLogin extends HttpServlet {
 			
 			if(rs.next()) {
 				out = response.getWriter();
-				out.println("");
-				out.println("<h6 align=center>");
-				out.println("<b>");
-				out.println("Welcome to ADmin Login Panel ");
-				out.println("</b>");
-				out.println("</h6>");
+				
 				
 				RequestDispatcher rd = request.getRequestDispatcher("AdminDivert.jsp");
 				

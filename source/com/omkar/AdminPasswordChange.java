@@ -45,13 +45,13 @@ public class AdminPasswordChange extends HttpServlet {
 		String adminnewpassword = request.getParameter("changedpassword");
 		
 		try {
-			psmt.setNString(1, adminnewpassword);
+			psmt.setNString(1, adminnewpassword);	
 			psmt.setNString(2, adminusername);
 			
 			psmt.executeUpdate();
 			
 			response.getWriter().println("Password successfully changed");
-			
+			getServletContext().getRequestDispatcher("/AdminDivert.jsp").include(request, response);
 			
 		} catch (SQLException e) {
 			System.out.println("Inside the exceoptin while changein password servlet "+e);

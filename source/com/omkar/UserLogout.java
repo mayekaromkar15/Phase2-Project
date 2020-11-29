@@ -15,8 +15,7 @@ public class UserLogout extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		System.out.println("Inside userlogout get servlet");
-//	request.getSession().invalidate();
-//	response.sendRedirect("index.jsp");
+		
 	
 	}
 	
