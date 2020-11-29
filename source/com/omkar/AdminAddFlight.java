@@ -60,7 +60,7 @@ public class AdminAddFlight extends HttpServlet {
 		out.println(arrival);
 		out.println(departure);
 		int totalstops = Integer.parseInt(request.getParameter("totalstops"));
-
+		
 		try {
 			psmt.setString(1, fltno);
 			psmt.setString(2, source);

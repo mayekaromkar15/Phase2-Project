@@ -40,6 +40,7 @@ public class AdminPasswordChange extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
 		
 		String adminusername = request.getParameter("adminusername");
 		String adminnewpassword = request.getParameter("changedpassword");
@@ -49,8 +50,11 @@ public class AdminPasswordChange extends HttpServlet {
 			psmt.setNString(2, adminusername);
 			
 			psmt.executeUpdate();
-			
+			response.getWriter().println("<h5 align = center>");
+			response.getWriter().println("<b>");
 			response.getWriter().println("Password successfully changed");
+			response.getWriter().println("</b>");
+			response.getWriter().println("</h5>");
 			getServletContext().getRequestDispatcher("/AdminDivert.jsp").include(request, response);
 			
 		} catch (SQLException e) {

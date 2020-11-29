@@ -33,7 +33,8 @@ transform: translate(-50%, -50%);
 								Please Enter A New Password
 								<input type="password" name="changedpassword" placeholder="password" 
 								title = "Must be Alpha-numeric and not more than 10 characters"	 pattern = "[A-Za-z0-9]+" required>
-								<button type="submit" class="btn">Submit</button>
+								<button type="submit" class="btn">Submit</button>&emsp;&emsp;&emsp;&ensp;
+								<a class = "btn" href="AdminDivert.jsp">Go To Admin Home</a>
 								
 							</form>
 						</div>

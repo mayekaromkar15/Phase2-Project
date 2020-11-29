@@ -63,6 +63,9 @@ span{
 font-family: "Comic Sans MS", "Comic Sans", cursive;
 font-size: 25px;
 }
+.btn{
+border-radius: 20px;
+}
 
 </style>	
 </head>
@@ -79,6 +82,7 @@ font-size: 25px;
 <td> <i>Travel Date</i> : <%= request.getParameter("date") %></td>
 <td> <i>Total Adults</i> : <%= request.getParameter("adultseats") %></td>
 <td> <i>Total Childrens</i> : <%= request.getParameter("childrenseats") %></td>
+&emsp;&emsp;&emsp;&ensp;<td> <a class = "btn" href="welcome.jsp">Back</a></td>
 </tr>
 
 

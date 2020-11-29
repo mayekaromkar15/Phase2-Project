@@ -60,6 +60,7 @@ font-family: "Comic Sans MS", "Comic Sans", cursive;
 <div class = container>
 
 <h4 align="center">F<span>LIGHT</span>  D<span>ETAILS</span></h4>
+<h2 align = "center"><a class="btn" href="AdminDivert.jsp">Go To Admin Home</a></h2>
 
 <table class="striped" >
 <tr style="border:1px double black;">
