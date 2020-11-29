@@ -39,7 +39,7 @@ transform: translate(-50%, -50%);
                     <form action="addnewflight" method="POST">
                       <div class="form-group">
                             <label>FLIGHT NO</label>
-                            <input type="text" class="form-control" name="fltno" 
+                            <input type="text" class="form-control" name="fltno"  required
                             title="Must not contain Spaces"
                             placeholder="Add a flight no" pattern="[A-Z0-9]+" />
                         </div> 
@@ -53,7 +53,7 @@ transform: translate(-50%, -50%);
 							Statement stmt = dbcon.createStatement();
 							ResultSet  theresult = stmt.executeQuery(qry);
 							%>
-							<select name = "source">
+							<select name = "source" required>
 							<option></option>
 							<% while(theresult.next()){
 							%>	
@@ -69,7 +69,7 @@ transform: translate(-50%, -50%);
 							Statement stmt1 = dbcon1.createStatement();
 							ResultSet  theresult1 = stmt1.executeQuery(qry1);
 							%>
-							<select name = "destination" >
+							<select name = "destination" required>
 							<option></option>
 							<% while(theresult1.next()){
 							%>	
@@ -115,8 +115,8 @@ transform: translate(-50%, -50%);
                         </div> 
                         
                         <div class="form-group">
-                            <label>FARE</label>
-                            <input type="text" class="form-control" name="fare" 
+                            <label>Economy</label>
+                            <input type="text" class="form-control" name="economy" 
                             title="Must not contain Spaces and minimum 4 digits and maximum 5 digits"
                             placeholder="Enter Ticket Price" pattern="[0-9]{4,5}" />
                         </div>

@@ -58,18 +58,17 @@ public class UserLogin extends HttpServlet {
 				request.getSession().setAttribute("username", username);
 				out = response.getWriter();
 				
-				out.println("<h1 align=center>");
+				out.println("<h3 align=center>");
 				out.println("<br>");
 				out.println("<br>");
+				request.getSession().setAttribute("fullname",  rs.getString("fname")+" " +rs.getString("lname"));
 				out.println("Welcome "+ rs.getString("fname")+" " +rs.getString("lname") );
 				out.println("</br>");
-				out.println("</h1>");
+				out.println("</h3>");
 				
-//				
 				RequestDispatcher rd = request.getRequestDispatcher("MakePayment.jsp");
 				
 				rd.include(request, response);
-//				response.setContentType("html/text");
 				System.out.println("Creted http session");
 			}
 			else {

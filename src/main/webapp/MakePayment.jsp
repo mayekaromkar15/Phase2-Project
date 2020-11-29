@@ -19,6 +19,7 @@
             <div class="col-md-6 offset-md-3">
               
                 <div class="regForm">
+                	
                     <h1 align="center"><b>MAKE PAYMENT</b></h1>
                     <form action="bookingdetails.jsp" method="POST">
                         <div class="form-group">

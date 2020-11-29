@@ -32,7 +32,7 @@ transform: translate(-50%, -50%);
 								<input type="text" name="adminusername" placeholder="username" required = "required"><br>
 								PASSWORD
 								<input type="password" name="adminpassword" placeholder="password" 
-								title = "Must be Alpha-numeric"	 pattern = "[A-Za-z0-9]+" required>
+								title = "Must be Alpha-numeric"	 required>
 								<button type="submit" class="btn">Submit</button>
 								
 							</form>

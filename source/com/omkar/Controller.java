@@ -16,8 +16,6 @@ public class Controller extends HttpServlet {
 	PreparedStatement stmt;
 	
 	
-	
-	
 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("Inside do get");
@@ -25,9 +23,11 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		
 		System.out.println(parameter);
 		String paramater1 = request.getParameter("flightno");
+		String parameter2 = request.getParameter("fare");
 		HttpSession sessflight = request.getSession();
 		System.out.println(paramater1);
 		sessflight.setAttribute("flightno", paramater1);
+		sessflight.setAttribute("finalprice", parameter2);
 		
 		
 		if (parameter.equals("login")) {

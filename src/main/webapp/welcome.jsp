@@ -21,22 +21,28 @@
 .container
 {
 position: absolute;
-top: 40%;
+top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
+span{
+background-color:    #fbf87d  ;
+}
+span1{
+background-color:     #ffedd2     ;
+}
+
 </style>  
   </head>
-  <body>
+  <body style="background-color:#80aaff;">
     <div class="container">
         <div class="row">
             <div class="col-md-9 offset-md-1">
-              
                 <div class="regForm">
                 	<h1></h1>
-                	<h6 align = "right"><a class="btn" href="AdminLogin.jsp">Admin Login</a></h6>
                 	
-                    <h1 style="text-align: center;"><b>BOOK FLIGHT</b></h1>
+                	<h6 align = "right"><a class="btn" href="AdminLogin.jsp"><span1>Admin Login</span1></a></h6>	               
+                	  <h1 style="text-align: center;"><b><span>BOOK FLIGHT</span></b></h1>
                     <form action="flights.jsp" method="POST">
                         <div class="form-group" align = "center">
                         <label>FROM&emsp;:&emsp;</label>
@@ -80,7 +86,6 @@ transform: translate(-50%, -50%);
                             <label>TOTAL SEATS</label><br/>
                             <input type="text" value = "ADULTS  &darr;" disabled>
                             <select class="form-control" name="adultseats" required>
-                                <option></option>
 								<%for (int i = 1; i <=5; i++){%>
 								<option><% out.println(i);%></option>
 								<%
@@ -89,7 +94,6 @@ transform: translate(-50%, -50%);
                             </select>
                             <input type="text" value = "CHILDREN  &darr;" disabled>
                             <select class="form-control" name="childrenseats" required>
-                                <option></option>
 								<%for (int i = 0; i <=5; i++){%>
 								<option><% out.println(i);%></option>
 								<%
@@ -97,6 +101,16 @@ transform: translate(-50%, -50%);
 								%>
                             </select>
                         </div> 
+                         <div class="form-check">
+                         <label>CLASS</label><br/>
+                             <select class="form-control" name="class" required>
+                             <option>Economy</option>
+                             <option>Business</option>
+                             <option>First Class</option>
+                             </select>
+                         </div>
+                        
+                        
                         <div class="form-check">
                              <input class="form-check-input" type="checkbox" name="nonstop" value="Non Stop Flight Only">
                              <label class="form-check-label">Show only Non-Stop Flights</label>

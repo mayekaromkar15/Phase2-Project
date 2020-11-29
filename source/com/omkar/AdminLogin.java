@@ -45,21 +45,21 @@ public class AdminLogin extends HttpServlet {
 	void processrequestresponse(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		String username  = request.getParameter("adminusername");
-		String password = request.getParameter("adminpassword");
+		String adminusername  = request.getParameter("adminusername");
+		String adminpassword = request.getParameter("adminpassword");
 		
 		
 		
 		
 		try {
-			psmt.setString(1, username);
-			psmt.setString(2, password);
+			psmt.setString(1, adminusername);
+			psmt.setString(2, adminpassword);
 			
 			ResultSet rs = psmt.executeQuery();
 			
 			if(rs.next()) {
 				out = response.getWriter();
-				
+				out.println("");
 				out.println("<h6 align=center>");
 				out.println("<b>");
 				out.println("Welcome to ADmin Login Panel ");
@@ -71,8 +71,11 @@ public class AdminLogin extends HttpServlet {
 				rd.include(request, response);
 			}
 			else {
-				out.println("<h4 align = center>You are not an Admin</h4>");
-				request.getRequestDispatcher("AdminLogin.jsp").include(request, response);
+				out.println("<h4 align = center><b>You are not an Admin</b></h4>");
+				
+				request.getRequestDispatcher("AdminLogin.jsp").include(request, response);;
+				RequestDispatcher rd =  request.getRequestDispatcher("AdminLogin.jsp");
+				rd.include(request, response);
 			}
 			
 			

@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,9 +31,9 @@ public class AdminAddFlight extends HttpServlet {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/flyaway", "root", "12345");
 			
-			String query = "Insert into flight_details (FlightNo,Source,Destination,Fare,"
-					+ "Departure,Arrival,Duration,AirportName,TotalStops,FlightName) "
-					+ "values (?,?,?,?,?,?,timediff(?,?),?,?,?);";
+			String query = "Insert into flight_details (FlightNo,Source,Destination,Economy,"
+					+ "Departure,Arrival,Duration,AirportName,TotalStops,FlightName,Business,First_Class) "
+					+ "values (?,?,?,?,?,?,timediff(?,?),?,?,?,?,?);";
 			psmt = connection.prepareStatement(query);
 
 		} catch (ClassNotFoundException | SQLException e) {
@@ -42,17 +43,19 @@ public class AdminAddFlight extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println("inside do post of addnewflight method");
+		response.getWriter().println("Welcome");
 	
 		PrintWriter out = response.getWriter();
 		String fltno = request.getParameter("fltno");
 		String source = request.getParameter("source");
 		String destination = request.getParameter("destination");
 		String fltname = request.getParameter("fltname");
-		int fare = Integer.parseInt(request.getParameter("fare"));
+		int economy = Integer.parseInt(request.getParameter("economy"));
 		String airport = request.getParameter("airport");
 		String departure = request.getParameter("departure");
 		String arrival = request.getParameter("arrival");
+		int business = (int) (economy * 1.5);
+		int firstclass = (int) (economy * 2.5);
 		
 		out.println(arrival);
 		out.println(departure);
@@ -62,7 +65,7 @@ public class AdminAddFlight extends HttpServlet {
 			psmt.setString(1, fltno);
 			psmt.setString(2, source);
 			psmt.setString(3, destination);
-			psmt.setInt(4, fare);
+			psmt.setInt(4, economy);
 			psmt.setString(5, departure);
 			psmt.setString(6, arrival);
 			psmt.setString(7,arrival );
@@ -70,12 +73,25 @@ public class AdminAddFlight extends HttpServlet {
 			psmt.setString(9, airport);
 			psmt.setInt(10, totalstops);
 			psmt.setString(11, fltname);
+			psmt.setInt(12, business);
+			psmt.setInt(13, firstclass);
 			
 			psmt.executeUpdate();
+			response.getWriter().println("<h3 align = center>");
+			response.getWriter().println("<b>");
+			response.getWriter().println("Flight details successfully added ");
+			response.getWriter().println("</b>");
+			response.getWriter().println("</h3>");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
+			
+			
+			rd.include(request, response);
 		} catch (SQLException e) {
 			System.out.println("Inside error of do post of adminaddflight servlet "+e);
+			out.println("This flight No is already used ");
 		}
 		
+			
 		
 		
 		

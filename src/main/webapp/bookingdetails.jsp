@@ -43,7 +43,7 @@ padding: 10px;
 </style>
 </head>
 <body>
-
+<h6 align= "center"><%= "Hello "+request.getSession().getAttribute("fullname") %></h6>
 <div class = "container"> 
 <%
 try{
@@ -101,7 +101,7 @@ try{
 		 	</tr>
 		 	<tr>
 		 		   <th><b>-- Fare</b></th>
-		 		   <td><%= resultset.getInt("Fare")%></td>
+		 		   <td><%= request.getSession().getAttribute("finalprice")%></td>
 		 	</tr>
 		 	<tr>
 		 		   <th><b>-- SeatNo</b></th>

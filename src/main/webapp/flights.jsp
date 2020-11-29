@@ -57,7 +57,7 @@ padding: 10px;
 <h5 align="center"><b>Flight Details</b></h5>
 
 
-<table class="left" >
+<table class="left" >	
 
 <tr><td><b>From</b>  : <%= request.getParameter("from") %></td> 
 <td> <b>To</b> : <%= request.getParameter("to") %></td>
@@ -132,9 +132,24 @@ try{
 <td ><%= resultset.getString("Arrival")%></td>
 <td ><%= resultset.getString("Duration")%></td>
 <td ><%= resultset.getString("AirportName")%></td>
-<td ><%= (adults * resultset.getInt("Fare")) + Math.round((children * (0.8 * resultset.getInt("Fare"))))%></td>
+<td ><% if (request.getParameter("class").equals("Economy")){
+	out.println((adults * resultset.getInt("Economy")) + Math.round((children * (0.8 * resultset.getInt("Economy")))));
+}else if(request.getParameter("class").equals("Business")){
+	out.println((adults * resultset.getInt("Business")) + Math.round((children * (0.8 * resultset.getInt("Business")))));
+}else{
+	out.println((adults * resultset.getInt("First_Class")) + Math.round((children * (0.8 * resultset.getInt("First_Class")))));
+}%></td>
 
-<td><a class="btn" href="<%= request.getContextPath() %>/main?page=login&flightno=<%= resultset.getString("FlightNo")%>">Book Now</a></td>
+
+
+<td><a class="btn" href="<%= request.getContextPath() %>/main?page=login&flightno=<%= resultset.getString("FlightNo")%>&
+fare=<% if (request.getParameter("class").equals("Economy")){
+	out.println((adults * resultset.getInt("Economy")) + Math.round((children * (0.8 * resultset.getInt("Economy")))));
+}else if(request.getParameter("class").equals("Business")){
+	out.println((adults * resultset.getInt("Business")) + Math.round((children * (0.8 * resultset.getInt("Business")))));
+}else{
+	out.println((adults * resultset.getInt("First_Class")) + Math.round((children * (0.8 * resultset.getInt("First_Class")))));
+}%>">Book Now</a></td>
 
 </tr>
 
