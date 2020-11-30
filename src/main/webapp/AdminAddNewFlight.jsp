@@ -27,6 +27,10 @@ top: 50%;
 left: 50%;
 transform: translate(-50%, -50%);
 }
+span{
+font-size: 12px;
+}
+
 </style>
   </head>
   <body>
@@ -122,7 +126,7 @@ transform: translate(-50%, -50%);
                         </div>
                         
                           <div class="form-group" >
-                          <label>DEPARTURE AND ARRIVAL</label><p>
+                          <label>DEPARTURE AND ARRIVAL<span>(Add time in 12 hour format followed by AM/PM)</span></label><p>
   						  <input type="time" class="form-control" name = "departure" style="width: 40%; float: left" placeholder="Departure Time"/>
    						  <input type="time" class="form-control" name = "arrival" style="width: 40%; float: right" placeholder="Arrival Time"/>
  						 </div> 
