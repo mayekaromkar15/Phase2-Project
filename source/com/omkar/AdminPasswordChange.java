@@ -26,7 +26,6 @@ public class AdminPasswordChange extends HttpServlet {
 			psmt = connection.prepareStatement(query);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Inside exception block of init"+e);
 		}
 		
 	}
@@ -58,7 +57,6 @@ public class AdminPasswordChange extends HttpServlet {
 			getServletContext().getRequestDispatcher("/AdminDivert.jsp").include(request, response);
 			
 		} catch (SQLException e) {
-			System.out.println("Inside the exceoptin while changein password servlet "+e);
 		}
 		
 		

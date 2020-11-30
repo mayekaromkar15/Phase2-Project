@@ -36,6 +36,13 @@
 		<servlet-name>AdminLogin</servlet-name>
 		<servlet-class>com.omkar.AdminLogin</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AddNewAdminUser</display-name>
+		<servlet-name>AddNewAdminUser</servlet-name>
+		<servlet-class>com.omkar.AddNewAdminUser</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>AdminDelete</servlet-name>
 		<url-pattern>/AdminDelete</url-pattern>
@@ -55,6 +62,10 @@
 	<servlet-mapping>
 		<servlet-name>AdminLogin</servlet-name>
 		<url-pattern>/AdminLogin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AddNewAdminUser</servlet-name>
+		<url-pattern>/AddNewAdminUser</url-pattern>
 	</servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

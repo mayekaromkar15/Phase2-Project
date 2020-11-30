@@ -38,7 +38,7 @@ font-family: "Comic Sans MS", "Comic Sans", cursive;
 <h2 align = "center"><a class="btn" href="AdminAddNewFlight.jsp">Add Flight</a></h2>
 <h2 align = "center"><a class="btn" href="AdminViewFlights.jsp">View Flight</a></h2>
 <h2 align = "center"><a class="btn" href="AdminPasswordChange.jsp">Change Password</a></h2>
-
+<h2 align = "center"><a class="btn" href="AdminRegisterUser.jsp">Create Admin User</a></h2>
 </div>
 
 </body>

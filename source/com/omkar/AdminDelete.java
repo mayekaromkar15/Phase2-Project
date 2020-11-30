@@ -25,7 +25,6 @@ public class AdminDelete extends HttpServlet {
 			Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/flyaway", "root", "12345");
 			psmt= connection.prepareStatement( "Delete from flight_details where FlightNo =  ?");
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Inside exception of Admindelete Servlet init method"+e);
 		
 		}
 	}
@@ -33,7 +32,6 @@ public class AdminDelete extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
-		System.out.println("Inside admindelete Servlet Doget method");
 		
 		String param = request.getParameter("flightno");
 		response.getWriter().println(param);
@@ -44,7 +42,6 @@ public class AdminDelete extends HttpServlet {
 			psmt.executeUpdate();
 			
 		} catch (SQLException e) {
-			System.out.println("inside do get psmt setstring exception block "+e);
 		}
 		
 		
@@ -53,7 +50,6 @@ public class AdminDelete extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Inside admindelete dopost");
 	}
 
 }

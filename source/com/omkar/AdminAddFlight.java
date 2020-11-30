@@ -37,13 +37,12 @@ public class AdminAddFlight extends HttpServlet {
 			psmt = connection.prepareStatement(query);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Inside exception block of adminaddflight servlet init"+e);
 		}
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().println("Welcome");
+		response.setContentType("text/html");
 	
 		PrintWriter out = response.getWriter();
 		String fltno = request.getParameter("fltno");
@@ -57,8 +56,6 @@ public class AdminAddFlight extends HttpServlet {
 		int business = (int) (economy * 3);
 		int firstclass = (int) (economy * 5);
 		
-		out.println(arrival);
-		out.println(departure);
 		int totalstops = Integer.parseInt(request.getParameter("totalstops"));
 		
 		try {
@@ -82,13 +79,18 @@ public class AdminAddFlight extends HttpServlet {
 			response.getWriter().println("Flight details successfully added ");
 			response.getWriter().println("</b>");
 			response.getWriter().println("</h3>");
-			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/AdminDivert.jsp");
 			
 			
 			rd.include(request, response);
 		} catch (SQLException e) {
-			System.out.println("Inside error of do post of adminaddflight servlet "+e);
-			out.println("This flight No is already used ");
+			
+			response.getWriter().println("<h3 align = center>");
+			response.getWriter().println("<b>");
+			out.println("This FLIGHT NO is already used.. Try Again ");
+			response.getWriter().println("</b>");
+			response.getWriter().println("</h3>");
+			getServletContext().getRequestDispatcher("/AdminAddNewFlight.jsp").include(request, response);
 		}
 		
 			

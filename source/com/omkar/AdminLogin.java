@@ -34,10 +34,8 @@ public class AdminLogin extends HttpServlet {
 			
 			String query = "Select * from  admindetails where username = ? and password = ?";
 			psmt = connection.prepareStatement(query);
-			System.out.println("successfully connected to the database.");
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Inside exception block of init"+e);
 		}
 		
 	}
@@ -75,7 +73,6 @@ public class AdminLogin extends HttpServlet {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Inside the Adminlogin.java exception block "+e);
 		}
 	}
 	
@@ -98,7 +95,6 @@ public class AdminLogin extends HttpServlet {
 			connection.close();
 			psmt.close();
 		} catch (SQLException e) {
-			System.out.println("failed to close the connection");
 		}
 	}
 }

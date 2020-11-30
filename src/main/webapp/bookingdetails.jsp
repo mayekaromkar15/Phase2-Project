@@ -43,7 +43,7 @@ padding: 10px;
 </style>
 </head>
 <body>
-<h6 align= "center"><%= "Hello "+request.getSession().getAttribute("fullname") %></h6>
+<h4 align= "center"><%= "Hello "+request.getSession().getAttribute("fullname") %></h4>
 <div class = "container"> 
 <%
 try{

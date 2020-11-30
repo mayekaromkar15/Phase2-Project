@@ -35,7 +35,6 @@ public class UserLogin extends HttpServlet {
 			psmt = connection.prepareStatement(query);
 
 		} catch (ClassNotFoundException | SQLException e) {
-			System.out.println("Inside exception block of init"+e);
 		}
 		
 	}
@@ -72,7 +71,6 @@ public class UserLogin extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("MakePayment.jsp");
 				
 				rd.include(request, response);
-				System.out.println("Creted http session");
 			}
 			else {
 				out.println("<h4 align = center>Please Enter Valid Username and Password</h4>");
@@ -81,7 +79,6 @@ public class UserLogin extends HttpServlet {
 			
 			
 		} catch (SQLException e) {
-			System.out.println("Inside the userlogin.java exception block "+e);
 		}
 	}
 	
@@ -108,7 +105,6 @@ public class UserLogin extends HttpServlet {
 			connection.close();
 			psmt.close();
 		} catch (SQLException e) {
-			System.out.println("failed to close the connection");
 		}
 	}
 
