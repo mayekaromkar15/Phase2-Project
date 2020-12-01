@@ -91,7 +91,7 @@ font-size: 12px;
 							Statement stmt2 = dbcon.createStatement();
 							ResultSet  theresult2 = stmt2.executeQuery(qry2);
 							%>
-							<select name = "fltname" >
+							<select name = "fltname" required>
 							<option></option>
 							<% while(theresult2.next()){
 							%>	
@@ -109,7 +109,7 @@ font-size: 12px;
 							ResultSet  theresult3 = stmt3.executeQuery(qry3);
 							
 							%>
-							<select name = "airport" >
+							<select name = "airport" required>
 							<option></option>
 							<% while(theresult3.next()){
 							%>	
@@ -120,22 +120,22 @@ font-size: 12px;
                         
                         <div class="form-group">
                             <label>Economy</label>
-                            <input type="text" class="form-control" name="economy" 
+                            <input type="text" class="form-control" name="economy" required
                             title="Must not contain Spaces and minimum 4 digits and maximum 5 digits"
                             placeholder="Enter Ticket Price" pattern="[0-9]{4,5}" />
                         </div>
                         
                           <div class="form-group" >
                           <label>DEPARTURE AND ARRIVAL<span>(Add time in 12 hour format followed by AM/PM)</span></label><p>
-  						  <input type="time" class="form-control" name = "departure" style="width: 40%; float: left" placeholder="Departure Time"/>
-   						  <input type="time" class="form-control" name = "arrival" style="width: 40%; float: right" placeholder="Arrival Time"/>
+  						  <input type="time" class="form-control" name = "departure" style="width: 40%; float: left" placeholder="Departure Time" required/>
+   						  <input type="time" class="form-control" name = "arrival" style="width: 40%; float: right" placeholder="Arrival Time" required/>
  						 </div> 
  						   
  						    <br/>
  						    
  						  <div class="form-group">
                             <label>TOTAL STOPS</label><br/>
-                            <select class="form-control" name="totalstops"  style="width: 32%; float: left">
+                            <select class="form-control" name="totalstops"  style="width: 32%; float: left" required>
                                 <option></option>
 								<%for (int i = 1; i <=5; i++){%>
 								<option><% out.println(i);%></option>
